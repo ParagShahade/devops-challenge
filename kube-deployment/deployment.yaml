@@ -1,0 +1,43 @@
+# This Kubernetes deployment file sets up a CORS proxy using the imjacobclark/cors-container image.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cors-proxy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cors-proxy
+  template:
+    metadata:
+      labels:
+        app: cors-proxy
+    spec:
+      containers:
+        - name: cors-proxy
+          image: imjacobclark/cors-container:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: CORSANYWHERE_ALLOWLIST
+              value: "*"
+          resources:
+            requests:
+              cpu: "750m"
+              memory: "768Mi"
+            limits:
+              cpu: "1500m"
+              memory: "1.5Gi"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
