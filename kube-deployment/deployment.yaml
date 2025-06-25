@@ -18,9 +18,6 @@ spec:
           image: imjacobclark/cors-container:latest
           ports:
             - containerPort: 3000
-          env:
-            - name: CORSANYWHERE_ALLOWLIST
-              value: "*"
           resources:
             requests:
               cpu: "750m"
