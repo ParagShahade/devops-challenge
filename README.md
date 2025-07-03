@@ -1,7 +1,3 @@
----
-sidebar: auto
-sidebarDepth: 2
----
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -97,5 +93,4 @@ No resources.
 | <a name="output_gke_region"></a> [gke\_region](#output\_gke\_region) | n/a |
 | <a name="output_gke_subnetwork_cidr"></a> [gke\_subnetwork\_cidr](#output\_gke\_subnetwork\_cidr) | n/a |
 | <a name="output_gke_subnetwork_name"></a> [gke\_subnetwork\_name](#output\_gke\_subnetwork\_name) | n/a |
-<!-- END_TF_DOCS --># devops-challenge
-# devops-challenge
+<!-- END_TF_DOCS -->
